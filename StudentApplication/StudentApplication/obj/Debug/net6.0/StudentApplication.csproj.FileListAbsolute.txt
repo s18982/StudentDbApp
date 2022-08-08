@@ -25,3 +25,9 @@ C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Deb
 C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\obj\Debug\net6.0\StudentApplication.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\obj\Debug\net6.0\StudentApplication.csproj.CopyComplete
 C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Fifi\Desktop\StudentDbApp\StudentApplication\StudentApplication\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
