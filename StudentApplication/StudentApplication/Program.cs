@@ -1,14 +1,39 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Builder;
+using StudentApplication.Services;
 
-builder.Services.AddControllersWithViews();
+public class Program{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        // Add services to the Dependency Injection container.
+        builder.Services.AddScoped<IDbService, SqlServerDbService>();
 
-app.UseAuthentication();
-app.UseAuthorization();
+        builder.Services.AddControllers();
+        
+        // Dodanie Swaggera
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+       
+        var app = builder.Build();
 
-app.MapControllerRoute(
-    name:"default",
-   pattern:"{controller=Students}/{id?}");
+        // ======================================
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
 
-app.Run();
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.MapControllers();
+       /*
+        app.MapControllerRoute(
+            name: "default",
+           pattern: "{controller=Students}/{id?}");
+       */
+        app.Run();
+    }
+}

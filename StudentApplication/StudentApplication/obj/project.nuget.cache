@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "AN0cgnMIC6H7r/y4PcZLdCrwVKmXGu3quqfq7F7kjvnhEsc2Zk3oh2osYZCcW63c7XCLRneRU+2FXAAVOilymw==",
+  "dgSpecHash": "Qn5wJZjJJKixzC/ZzSNcIlvI0Klye3beAz/tJVceiuTH/9JXJO7+AX/kjxDiUajT7HgDe80WC8Rp4i+GY/gqLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Fifi\\Desktop\\StudentDbApp\\StudentApplication\\StudentApplication\\StudentApplication.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Fifi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Fifi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Fifi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Fifi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
   "logs": []
 }
