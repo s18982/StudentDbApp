@@ -4,6 +4,9 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllerRoute(
     name:"default",
    pattern:"{controller=Students}/{id?}");
