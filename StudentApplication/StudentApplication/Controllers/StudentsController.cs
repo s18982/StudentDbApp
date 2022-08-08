@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentApplication.Models;
 
 namespace StudentApplication.Controllers
 {
@@ -11,6 +12,12 @@ namespace StudentApplication.Controllers
         public IActionResult GetStudents()
         {
             return Ok("okejo");
+        }
+        [HttpPost]
+        public IActionResult CreateStudent(Student newStudent)
+        {
+            
+            return Ok();
         }
     }
 }
