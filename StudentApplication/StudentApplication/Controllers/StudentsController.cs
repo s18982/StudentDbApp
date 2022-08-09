@@ -12,15 +12,17 @@ namespace StudentApplication.Controllers
     {
         // Wstrzykiwanie serwisu db przez konstruktor
         private readonly IDbService _Service;
-        public StudentsController(IDbService dbService)
+        private readonly IConfiguration _configuration;
+        public StudentsController(IDbService dbService, IConfiguration configuration)
         {
             this._Service = dbService;
+            this._configuration = configuration;
         }
         
         [HttpGet]
         public IActionResult GetStudents()
         {
-            SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=StudentApplication;Integrated Security=True");
+            SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("DefaultDbConnections"));
             SqlCommand sqlCommand = new SqlCommand("select * from student;",sqlConnection);
             
             sqlConnection.Open();
@@ -31,6 +33,7 @@ namespace StudentApplication.Controllers
             {
                 names.Add(dr["LastName"].ToString());
             }
+            sqlConnection.Dispose();
             return Ok(names);
         }
         [HttpPost]
