@@ -4,7 +4,10 @@ namespace StudentApplication.Models
 {
     public class Student
     {
+        public Student()
+        {
 
+        }
         public int IdStudent { get; set; }
         [Required(ErrorMessage = "Imię jest wymagane")]
         [MaxLength(100, ErrorMessage = "Nie może być dłuższe niż 100 znaków")]

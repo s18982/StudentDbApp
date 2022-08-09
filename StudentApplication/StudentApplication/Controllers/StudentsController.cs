@@ -22,19 +22,8 @@ namespace StudentApplication.Controllers
         [HttpGet]
         public IActionResult GetStudents()
         {
-            SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("DefaultDbConnections"));
-            SqlCommand sqlCommand = new SqlCommand("select * from student;",sqlConnection);
-            
-            sqlConnection.Open();
-            SqlDataReader dr = sqlCommand.ExecuteReader();
-
-            List<String> names = new List<string>();
-            while (dr.Read())
-            {
-                names.Add(dr["LastName"].ToString());
-            }
-            sqlConnection.Dispose();
-            return Ok(names);
+            var students = _Service.GetAllStudents();
+            return Ok(students);
         }
         [HttpPost]
         public IActionResult CreateStudent(Student newStudent)
@@ -42,6 +31,17 @@ namespace StudentApplication.Controllers
             _Service.AddStudent(newStudent);
             
             return Ok();
+        }/*
+
+        [HttpDelete]
+        public IActionResult DeleteStudent(Student student)
+        {
+
         }
+        [HttpPut]
+        public IActionResult UpdateStudent()
+        {
+
+        }*/
     }
 }
