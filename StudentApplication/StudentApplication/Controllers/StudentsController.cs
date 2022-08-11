@@ -18,7 +18,7 @@ namespace StudentApplication.Controllers
             this._Service = dbService;
             this._configuration = configuration;
         }
-        
+
         [HttpGet]
         public IActionResult GetStudents()
         {
@@ -28,19 +28,36 @@ namespace StudentApplication.Controllers
         [HttpPost]
         public IActionResult CreateStudent(Student newStudent)
         {
-            if (_Service.AddStudent(newStudent) == false) 
+            if (_Service.AddStudent(newStudent) == false)
             {
                 return BadRequest();
             }
             else
                 return Ok();
-        }/*
+        }
+
+        [HttpGet]
+        [Route("{IdStudent}")]
+        public IActionResult GetSingleStudent(int IdStudent)
+        {
+            foreach(Student st in _Service.GetAllStudents())
+            {
+                if (st.IdStudent == IdStudent)                
+                    return Ok(st);                
+            }
+            return NotFound();
+        }
+        
 
         [HttpDelete]
-        public IActionResult DeleteStudent(Student student)
+        [Route("{IdStudent}")]
+        public IActionResult DeleteStudent(int IdStudent)
         {
-
-        }
+            if (_Service.DeleteStudent(IdStudent) == false)
+                return BadRequest();
+            else
+                return Ok();
+        }/*
         [HttpPut]
         public IActionResult UpdateStudent()
         {

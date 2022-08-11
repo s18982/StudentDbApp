@@ -6,5 +6,6 @@ namespace StudentApplication.Services
     {
         public bool AddStudent(Student newStudent);
         public IEnumerable<Student> GetAllStudents();
+        public bool DeleteStudent(int IdStudent);
     }
 }

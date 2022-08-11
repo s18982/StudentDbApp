@@ -65,5 +65,33 @@ namespace StudentApplication.Services
             }            
             return students;
         }
+        public bool DeleteStudent(int IdStudent)
+        {
+            bool exist = false;
+            foreach (Student s in GetAllStudents())
+            {
+                if (s.IdStudent == IdStudent)
+                    exist = true;
+            }
+            if (exist == false)
+                return false;
+            
+            using(SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultDbConnections")))
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.Parameters.Clear();
+
+                command.CommandText = "Delete from Student where IdStudent=@IdStudent;";
+                command.Parameters.AddWithValue("IdStudent",IdStudent);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Dispose();
+
+                return true;
+            }
+        }
+
     }
 }
