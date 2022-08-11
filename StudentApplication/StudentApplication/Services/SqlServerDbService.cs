@@ -14,6 +14,29 @@ namespace StudentApplication.Services
 
         public bool AddStudent(Student newStudent)
         {
+            foreach (Student student in this.GetAllStudents())
+            {
+                if (student.IndexNumber.Equals(newStudent.IndexNumber))
+                    return false;
+            }
+            
+            using (SqlConnection con =  new SqlConnection(configuration.GetConnectionString("DefaultDbConnections")))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+
+                cmd.Parameters.Clear();
+                cmd.CommandText="Insert into student(FirstName,Lastname,Email,IndexNumber) values(@FirstName,@LastName,@Email,@IndexNumber);";
+                cmd.Parameters.AddWithValue("FirstName",newStudent.FirstName);
+                cmd.Parameters.AddWithValue("LastName", newStudent.LastName);
+                cmd.Parameters.AddWithValue("Email", newStudent.Email);
+                cmd.Parameters.AddWithValue("IndexNumber", newStudent.IndexNumber);
+
+                con.Open();
+                cmd.ExecuteReader();
+                con.Dispose();
+            }
+            
             return true;
         }
 

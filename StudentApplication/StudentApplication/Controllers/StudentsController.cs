@@ -28,9 +28,12 @@ namespace StudentApplication.Controllers
         [HttpPost]
         public IActionResult CreateStudent(Student newStudent)
         {
-            _Service.AddStudent(newStudent);
-            
-            return Ok();
+            if (_Service.AddStudent(newStudent) == false) 
+            {
+                return BadRequest();
+            }
+            else
+                return Ok();
         }/*
 
         [HttpDelete]
