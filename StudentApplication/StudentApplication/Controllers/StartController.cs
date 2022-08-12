@@ -10,7 +10,19 @@ namespace StudentApplication.Controllers
         [HttpGet]
         public string Start()
         {
-            return "Hello! It's home page";
+            System.Diagnostics.Process myProcess = new System.Diagnostics.Process();
+            try
+            {
+                // true is the default, but it is important not to set it to false
+                myProcess.StartInfo.UseShellExecute = true;
+                myProcess.StartInfo.FileName = "..\\StudentApplication\\Frontend\\index.html";
+                myProcess.Start();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return "Hello! It's home page of server.";
         }
     }
 }

@@ -57,11 +57,23 @@ namespace StudentApplication.Controllers
                 return BadRequest();
             else
                 return Ok();
-        }/*
+        }
+
         [HttpPut]
-        public IActionResult UpdateStudent()
+        [Route("{IdStudent}")]
+        public IActionResult UpdateStudent(int IdStudent, Student updatedStudent)
         {
 
-        }*/
+
+            if (_Service.UpdateStudent(IdStudent, updatedStudent) == false)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok();
+            }
+
+        }
     }
 }

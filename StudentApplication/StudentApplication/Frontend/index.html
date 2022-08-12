@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>All Students</h1>
+		<ul id="mojaLista"></ul>
+		<div id="app"></div>
+        <script>
+            function fetchData(){
+                fetch("https://localhost:7226/students", {method: "GET",}).then(response =>response.json()).then(data => setData(data));
+			}
+
+            function setData(data) {
+                students = data;
+				var len = students.length;
+				let names = [];
+				for(var i = 0; i<len; i++){
+					const studJson = JSON.stringify(students[i]);
+					const myObj = JSON.parse(studJson);
+
+					var newItem = document.createElement("p");
+					var textnode = document.createTextNode(myObj["firstName"]+" "+myObj["lastName"]+" "+myObj["email"]+" "+myObj["indexNumber"]);
+					newItem.appendChild(textnode);
+					var list = document.getElementById("app");
+					list.insertBefore(newItem, list.childNodes[1]);
+				}
+            }
+			
+			fetchData();
+        </script>
+    </body>
+</html>
