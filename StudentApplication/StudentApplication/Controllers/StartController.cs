@@ -15,7 +15,7 @@ namespace StudentApplication.Controllers
             {
                 // true is the default, but it is important not to set it to false
                 myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.FileName = "..\\StudentApplication\\Frontend\\index.html";
+                myProcess.StartInfo.FileName = "..\\StudentApplication\\Frontend\\Home\\index.html";
                 myProcess.Start();
             }
             catch (Exception e)

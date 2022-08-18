@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Students</title>
+</head>
+<body>
+    <header>
         <h1>All Students</h1>
-		<ul id="mojaLista"></ul>
-		<div id="app"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../Home/index.html">Home page</a></li>
+            <li><a href="StudentsList.html">Students</a></li>
+            <li><a>Privacy</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>List of students</h2>
+        <ul id="mojaLista"></ul>
+        <div id="app"></div>
         <script>
             function fetchData(){
                 fetch("https://localhost:7226/students", {method: "GET",}).then(response =>response.json()).then(data => setData(data));
@@ -30,8 +41,9 @@
 					list.insertBefore(newItem, list.childNodes[1]);
 				}
             }
-			
+
 			fetchData();
         </script>
-    </body>
+    </main>
+</body>
 </html>
